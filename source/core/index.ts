@@ -2729,7 +2729,7 @@ export default class Request extends Duplex implements RequestEvents<Request> {
 	The remote IP address.
 	*/
 	get ip(): string | undefined {
-		return this[kRequest]?.socket.remoteAddress;
+		return this[kRequest]?.socket?.remoteAddress;
 	}
 
 	/**
@@ -2739,7 +2739,7 @@ export default class Request extends Duplex implements RequestEvents<Request> {
 		return (this[kRequest]?.destroyed ?? this.destroyed) && !(this[kOriginalResponse]?.complete);
 	}
 
-	get socket(): Socket | undefined {
+	get socket(): Socket | null | undefined {
 		return this[kRequest]?.socket;
 	}
 

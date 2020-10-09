@@ -402,7 +402,7 @@ test('does not destroy the socket on HTTP error', withServer, async (t, server, 
 		response.end();
 	});
 
-	const sockets: Socket[] = [];
+	const sockets: Array<Socket | null> = [];
 
 	const agent = new http.Agent({
 		keepAlive: true
